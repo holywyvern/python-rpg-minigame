@@ -126,6 +126,7 @@ class BattleScene(Scene):
     self.__on_action_finish = on_finish
     self.__on_motion_finish = self.__perform_action
     action.user.start_motion(action.skill.motion, loops = 1)
+    self.__animation_target = action.user
     if action.skill.type == "damage":
       self.__animation_target = action.target
     elif self.__action.skill.type == "heal":
