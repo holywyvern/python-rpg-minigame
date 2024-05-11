@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
+import asyncio
+import pygame
+
 from random import seed
 import time
 
 from src.managers import Game
 
-if __name__ == '__main__':
-  seed(time.time())
-  Game.play()
+pygame.init()
+
+async def main():
+    await Game.loop()
+
+seed(time.time())
+Game.play()
+asyncio.run(main())

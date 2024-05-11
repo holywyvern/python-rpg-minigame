@@ -1,4 +1,5 @@
 import pygame
+import asyncio
 
 from .CacheManager import Cache
 
@@ -10,14 +11,12 @@ class GameClass:
     from .DataManager import Database
     Database.load_database()
     self.__setup()
-    self.__loop()
 
   def __setup(self):
     from .ScreenManager import Screen
     from .EventManager import Events
     from .InputManager import Input
     from .SceneManager import Scenes
-    pygame.init()
     Input.setup()
     self.delta_time = 0
     Screen.setup()
@@ -36,9 +35,10 @@ class GameClass:
   def __close_window(self, event):
     self.__running = False
 
-  def __loop(self):
+  async def loop(self):
     while self.__running:
       self.update()
+      await asyncio.sleep(0)  # This line is critical; ensure you keep the sleep time at 0
 
   def update(self):
     from .ScreenManager import Screen
