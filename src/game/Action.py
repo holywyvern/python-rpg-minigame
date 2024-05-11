@@ -37,4 +37,10 @@ class Action:
     return damage
 
   def __perform_escape(self):
+    from ..managers import Scenes, Game
+    from ..scenes import FieldScene
+    Game.player.score -= 1000
+    if Game.player.score < 0:
+      Game.player.score = 0
+    Scenes.goto(FieldScene())
     return 0
