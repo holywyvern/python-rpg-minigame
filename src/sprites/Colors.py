@@ -1,0 +1,7 @@
+class Colors:
+  DEFAULT = (255, 255, 255)
+  DISABLED = (128, 128, 128)
+  SYSTEM = (83, 179, 196)
+  CRISIS_COLOR = (255, 228, 71)
+  HP_COLOR = (255, 63, 68)
+  MP_COLOR = (142, 74, 129)
