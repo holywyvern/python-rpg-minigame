@@ -19,11 +19,9 @@ class GameClass:
     from .SceneManager import Scenes
     Input.setup()
     self.delta_time = 0
-    Screen.setup()
     self.small_font = self.__load_font(16, 2)
     self.big_font = self.__load_font(20, 6)
     self.__clock = pygame.time.Clock()
-    self.__running = True
     Events.on(pygame.QUIT, self.__close_window)    
     Scenes.setup()    
 
@@ -33,10 +31,10 @@ class GameClass:
     return Font(image, size, kerning)
 
   def __close_window(self, event):
-    self.__running = False
+    pygame.quit()
 
   async def loop(self):
-    while self.__running:
+    while True:
       self.update()
       await asyncio.sleep(0)  # This line is critical; ensure you keep the sleep time at 0
 
