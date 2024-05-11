@@ -1,5 +1,3 @@
-import jsonpickle
-
 from .. import rpg
 
 class DataManager:
@@ -39,6 +37,7 @@ class DataManager:
       self.load_data(file)
 
   def load_data(self, filename: str):
+    import jsonpickle
     with open(f'data/{filename}.json', 'r') as file:
       json = file.read()
       self.__data[filename] = jsonpickle.decode(json)

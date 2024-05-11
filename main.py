@@ -10,8 +10,8 @@ from src.managers import Game
 pygame.init()
 
 async def main():
+    seed(time.time())
+    Game.play()
     await Game.loop()
 
-seed(time.time())
-Game.play()
 asyncio.run(main())
