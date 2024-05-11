@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import asyncio
 import pygame
+import jsonpickle
 
 from random import seed
 import time
